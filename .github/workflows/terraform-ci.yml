@@ -32,3 +32,6 @@ jobs:
 
       - name: Terraform validate
         uses: terraform validate
+
+      - name: Terraform Plan
+        run: terraform plan -no-color

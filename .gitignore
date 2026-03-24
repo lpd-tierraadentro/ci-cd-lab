@@ -1,5 +1,5 @@
 # Terraform
-./infra/.terraform/
+infra/.terraform/
 
 # Opcional
 *.tfstate
