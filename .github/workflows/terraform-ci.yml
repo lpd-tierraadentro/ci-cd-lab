@@ -1,0 +1,34 @@
+name: Terraform CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "infra/**"
+      - ".github/workflows/terraform-ci.yml"
+    pull-requests:
+      - "infra/**"
+      - ".github/workflows/terraform-ci.yml"
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+  defaults:
+    run:
+      working-directory: infra
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform fmt Checkout
+        uses: terraform fmt -check -recursive
+
+      - name: Terraform init
+        uses: terraform init
+
+      - name: Terraform validate
+        uses: terraform validate

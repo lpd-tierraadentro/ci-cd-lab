@@ -1,0 +1,9 @@
+# Terraform
+./infra/.terraform/
+
+# Opcional
+*.tfstate
+*.tfstate.backup
+
+# General
+.DS_Store
