@@ -1,9 +1,10 @@
 #!/bin/sh
 
-counter=0
+if [ ! -f /app/config.txt ]; then
+    echo "Falta archivo de configuracion config.txt"
+    exit 1
+fi
 
-while [ $counter -lt 5 ]; do
-    date
-    counter=$(($counter +1))
-    sleep 1
-done
+echo "Archivo de configuración si existe"
+echo "App correcta"
+exit 0
