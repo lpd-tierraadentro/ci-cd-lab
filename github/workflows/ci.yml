@@ -1,0 +1,19 @@
+name: CI Docker Test
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t ci-cd-test .
+
+      - name: Run container
+        run: docker run ci-cd-test
